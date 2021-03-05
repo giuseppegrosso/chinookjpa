@@ -21,6 +21,8 @@ public interface ICrudService<MODEL, ID> {
 
     MODEL save(MODEL model);
 
+    List<MODEL> saveAll(List<MODEL> model);
+
     void delete(MODEL model);
 
     void deleteById(ID id);

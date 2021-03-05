@@ -1,23 +1,23 @@
-package it.plansoft.chinookjpa.controller;/* ggrosso created on 21/02/2021 inside the package - it.plansoft.demojpa.controller */
+package it.plansoft.chinookjpa.controller;/* ggrosso created on 05/03/2021 inside the package - it.plansoft.chinook.controller */
 
 import it.plansoft.chinookjpa.controller.interfaces.ICrudController;
 import it.plansoft.chinookjpa.service.BaseCrudService;
-import lombok.AllArgsConstructor;
-import lombok.NoArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-
-
-public class BaseCrudController<SERVICE extends BaseCrudService<REPOSITORY, MODEL, ID>, REPOSITORY extends JpaRepository<MODEL, ID>, MODEL, ID>
-        implements ICrudController<MODEL, ID> {
+public class BaseCrudController<
+        SERVICE extends BaseCrudService<REPOSITORY, MODEL, ID>,
+        REPOSITORY extends JpaRepository<MODEL, ID>,
+        MODEL,
+        ID>
+        implements ICrudController<MODEL, ID>
+{
 
     protected SERVICE service;
 
@@ -53,12 +53,7 @@ public class BaseCrudController<SERVICE extends BaseCrudService<REPOSITORY, MODE
     @Override
     @PostMapping("/addAll")
     public ResponseEntity<List<MODEL>> saveAll(@RequestBody List<MODEL> model) {
-        List<MODEL> mout = new ArrayList<>();
-        for (MODEL m: model) {
-            mout.add(m);
-            service.save(m);
-        }
-        return ResponseEntity.ok(mout);
+        return ResponseEntity.ok(service.saveAll(model));
     }
 
     @Override

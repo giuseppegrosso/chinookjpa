@@ -22,7 +22,7 @@ public class Playlist extends BaseId<Long> {
     @Column(name = "name")
     private String name;
 
-    @ManyToMany
+    @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name="playlist_track",
             joinColumns=@JoinColumn(name="playlist_id", referencedColumnName="playlist_id"),

@@ -6,8 +6,11 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
-@Entity
-@Table(name = "albums")
+@Entity(name = "Albums")
+@Table(name = "albums",
+        uniqueConstraints = {
+        @UniqueConstraint(name = "albums_title_unique", columnNames = "title")
+        })
 public class Albums extends BaseId<Long>
 {
 

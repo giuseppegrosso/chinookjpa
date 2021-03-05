@@ -13,7 +13,7 @@ import java.util.Set;
 @AllArgsConstructor
 
 @ToString
-@Entity
+@Entity(name = "artists")
 @Table(name = "artists")
 public class Artists extends BaseId<Long> {
     @Id

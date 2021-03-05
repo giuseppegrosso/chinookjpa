@@ -5,7 +5,7 @@ import it.plansoft.chinookjpa.repository.GenreRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class GenreService extends BaseCrudService<GenreRepository, Genres, Long> {
+public class GenreService extends BaseNameService<GenreRepository, Genres, Long> {
 
     public GenreService(GenreRepository genreRepository) {
         super(genreRepository);

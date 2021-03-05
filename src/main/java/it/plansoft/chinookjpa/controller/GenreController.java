@@ -1,4 +1,4 @@
-package it.plansoft.chinookjpa.controller;/* ggrosso created on 28/02/2021 inside the package - it.plansoft.chinookjpa.controller.interfaces */
+package it.plansoft.chinookjpa.controller;/* ggrosso created on 05/03/2021 inside the package - it.plansoft.chinook.controller */
 
 import it.plansoft.chinookjpa.model.Genres;
 import it.plansoft.chinookjpa.repository.GenreRepository;
@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/genre")
 public class GenreController extends BaseCrudController<GenreService, GenreRepository, Genres, Long> {
 
-
     public GenreController(GenreService service) {
         super(service);
     }
+
 }

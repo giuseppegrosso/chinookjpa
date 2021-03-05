@@ -7,6 +7,7 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -37,6 +38,16 @@ public class BaseCrudService<REPOSITORY extends JpaRepository<MODEL, ID>, MODEL,
     @Override
     public MODEL save(MODEL model) {
         return repository.save(model);
+    }
+
+    @Override
+    public List<MODEL> saveAll(List<MODEL> model) {
+        List<MODEL> mout = new ArrayList<>();
+        for (MODEL m : model) {
+            mout.add(m);
+            repository.save(m);
+        }
+        return mout;
     }
 
     @Override

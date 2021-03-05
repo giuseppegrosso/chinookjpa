@@ -5,7 +5,7 @@ import it.plansoft.chinookjpa.repository.MediaTypeRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class MediaTypeService extends BaseCrudService<MediaTypeRepository, MediaTypes, Long> {
+public class MediaTypeService extends BaseNameService<MediaTypeRepository, MediaTypes, Long> {
 
     public MediaTypeService(MediaTypeRepository mediaTypeRepository) {
         super(mediaTypeRepository);

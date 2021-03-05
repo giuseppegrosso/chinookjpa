@@ -2,13 +2,15 @@ package it.plansoft.chinookjpa.service;/* ggrosso created on 28/02/2021 inside t
 
 import it.plansoft.chinookjpa.model.Tracks;
 import it.plansoft.chinookjpa.repository.TrackRepository;
+import it.plansoft.chinookjpa.service.interfaces.INameInterface;
 import org.springframework.stereotype.Service;
 
 @Service
-public class TrackService extends BaseCrudService<TrackRepository, Tracks, Long> {
+public class TrackService extends BaseNameService<TrackRepository, Tracks, Long> implements INameInterface<Tracks> {
 
-    public TrackService(TrackRepository trackRepository) {
-        super(trackRepository);
+    private TrackRepository repository;
+
+    public TrackService(TrackRepository repository) {
+        super(repository);
     }
-
 }

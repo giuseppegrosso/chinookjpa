@@ -11,14 +11,22 @@ import java.util.Set;
 @Service
 public class AlbumService extends BaseCrudService<AlbumRepository, Albums, Long> implements IAlbumService<Albums> {
 
-    public AlbumService(AlbumRepository albumRepository) {
-        super(albumRepository);
+    public AlbumService(AlbumRepository repository) {
+        super(repository);
     }
 
     @Override
     public Set<Albums> findByArtist(Artists artist) {
-        return ((AlbumRepository) repository).findByArtist(artist);
+        return repository.findByArtist(artist);
     }
 
+    @Override
+    public Set<Albums> findByArtistId(Long id) {
+        return repository.findByArtistId(id);
+    }
+    @Override
+    public Set<Albums> findByArtistName(String name) {
+        return repository.findByArtistName(name);
+    }
 
 }

@@ -1,4 +1,4 @@
-package it.plansoft.chinookjpa.controller;/* ggrosso created on 27/02/2021 inside the package - it.plansoft.chinookjpa.controller */
+package it.plansoft.chinookjpa.controller;/* ggrosso created on 05/03/2021 inside the package - it.plansoft.chinook.controller */
 
 import it.plansoft.chinookjpa.model.Artists;
 import it.plansoft.chinookjpa.repository.ArtistsRepository;
@@ -10,10 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/artist")
 public class ArtistController extends BaseCrudController<ArtistService, ArtistsRepository, Artists, Long> {
 
-
     public ArtistController(ArtistService service) {
         super(service);
     }
-
 
 }

@@ -8,7 +8,7 @@ spring:
     show-sql: true
     properties:
       hibernate:
-        format_sql=true: true
+        format_sql: true
   datasource:
     url: jdbc:sqlite:src/main/resources/chinook.db
     driver-class-name: org.sqlite.JDBC
