@@ -33,7 +33,7 @@ public class Artists extends BaseId<Long> {
     private String name;
 
 
-    @OneToMany(mappedBy = "artist")
+    @OneToMany(cascade=CascadeType.ALL, mappedBy="artist")
     @JsonIgnore
     private Set<Albums> albums;
 

@@ -1,32 +1,29 @@
 package it.plansoft.chinookjpa.model;/* ggrosso created on 27/02/2021 inside the package - it.plansoft.chinookjpa.model */
 
-import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Entity(name = "Albums")
-@Table(name = "albums",
-        uniqueConstraints = {
-        @UniqueConstraint(name = "albums_title_unique", columnNames = "title")
-        })
-public class Albums extends BaseId<Long>
-{
+@Table(name = "albums", uniqueConstraints = { @UniqueConstraint(name = "albums_title_unique", columnNames = "title") })
+@Data
+public class Albums extends BaseId<Long> {
 
     @Id
-    @Column(name = "album_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "album_id")
     private Long id;
-
 
     @Column(name = "title")
     private String title;
 
-
     @ManyToOne
     @JoinColumn(name = "artist_id")
     private Artists artist;
+
+    @OneToMany(cascade= CascadeType.ALL, mappedBy="album")
+    private Set<Tracks> tracks;
 
     public Long getId() {
         return id;
@@ -52,8 +49,7 @@ public class Albums extends BaseId<Long>
         this.artist = artist;
     }
 
-    public Albums()
-    {
+    public Albums() {
 
     }
 

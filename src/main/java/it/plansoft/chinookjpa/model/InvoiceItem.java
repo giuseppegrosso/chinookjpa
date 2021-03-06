@@ -15,11 +15,11 @@ public class InvoiceItem extends BaseId<Long> {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL, fetch= FetchType.LAZY)
     @JoinColumn( name="invoice_id" )
     private Invoice invoice;
 
-    @ManyToOne(cascade = CascadeType.ALL)
+    @ManyToOne(cascade = CascadeType.ALL, fetch= FetchType.LAZY)
     @JoinColumn( name="track_id" )
     private Tracks tracks;
 

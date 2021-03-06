@@ -20,7 +20,7 @@ public class Genres  extends BaseId<Long> {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "genres")
+    @OneToMany(fetch= FetchType.LAZY, cascade= CascadeType.ALL, mappedBy="genres")
     @JsonIgnore
     private Set<Tracks> tracks;
 

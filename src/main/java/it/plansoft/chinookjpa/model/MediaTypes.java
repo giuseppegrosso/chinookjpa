@@ -20,7 +20,7 @@ public class MediaTypes  extends BaseId<Long> {
     @Column(name = "name")
     private String name;
 
-    @OneToMany(mappedBy = "mediaTypes")
+    @OneToMany(fetch= FetchType.LAZY, cascade= CascadeType.ALL, mappedBy="mediaTypes")
     @JsonIgnore
     private Set<Tracks> tracks;
 
