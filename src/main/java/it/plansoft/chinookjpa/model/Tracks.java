@@ -1,5 +1,6 @@
 package it.plansoft.chinookjpa.model;/* ggrosso created on 28/02/2021 inside the package - it.plansoft.chinookjpa.model */
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.ToString;
@@ -36,6 +37,10 @@ public class Tracks extends BaseId<Long> {
     @ManyToOne
     @JoinColumn( name="genre_id" )
     private Genres genres;
+
+
+    @OneToMany(mappedBy = "invoice")
+    private Set<InvoiceItem> invoiceItems;
 
     @Column(name = "composer")
     private String composer;
