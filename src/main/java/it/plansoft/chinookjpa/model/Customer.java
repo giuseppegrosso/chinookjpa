@@ -1,5 +1,6 @@
 package it.plansoft.chinookjpa.model;/* ggrosso created on 05/03/2021 inside the package - it.plansoft.chinookjpa.model */
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -52,12 +53,13 @@ public class Customer extends BaseId<Long> {
     @Column(name = "email")
     private String email;
 
-//    @ManyToOne(fetch = FetchType.LAZY)
-//    @JoinColumn(name = "support_rep_id")
-//    private Employee supportRep;
+    @ManyToOne
+    @JoinColumn(name = "support_rep_id")
+    private Employee supportRep;
 
 
     @OneToMany(fetch = FetchType.LAZY, cascade = CascadeType.ALL, mappedBy = "customer")
+    @JsonIgnore
     private Set<Invoice> invoice;
 
     public Customer() {
@@ -196,5 +198,13 @@ public class Customer extends BaseId<Long> {
 
     public void setInvoice(Set<Invoice> invoice) {
         this.invoice = invoice;
+    }
+
+    public Employee getSupportRep() {
+        return supportRep;
+    }
+
+    public void setSupportRep(Employee supportRep) {
+        this.supportRep = supportRep;
     }
 }

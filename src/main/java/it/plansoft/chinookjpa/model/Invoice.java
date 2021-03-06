@@ -1,5 +1,6 @@
 package it.plansoft.chinookjpa.model;/* ggrosso created on 05/03/2021 inside the package - it.plansoft.chinookjpa.model */
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 
 import javax.persistence.*;
@@ -21,7 +22,8 @@ public class Invoice extends BaseId<Long> {
         return id;
     }
 
-    @OneToMany(fetch=FetchType.LAZY, cascade= CascadeType.ALL, mappedBy="invoice")
+    @OneToMany(cascade= CascadeType.ALL, mappedBy="invoice")
+    @JsonIgnore
     private Set<InvoiceItem> invoiceItems;
 
     @ManyToOne
