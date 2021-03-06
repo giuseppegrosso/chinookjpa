@@ -67,11 +67,26 @@ Notes:
 
 - Tested with SQLite 3.25.2
 
+## Development
+
+### System Requirements
+
+- Intellij comunity edition
+- Eclipse
+- Visual Studio Code
+- MySql V8.0.1
+- Postgres v 13.2
+- Sqlite v 3.25.2
+
+## database: ER
+
+![Diagramma ER](sqlite-sample-database-color.jpg)
+
 ## Install postman for Rest Services
 
 import the collection in postman
 
-[MY-LINK](ChinookJpa.postman_collection.json)
+[ChinookJpa.postman_collection](ChinookJpa.postman_collection.json)
 
 ## License
 
