@@ -1,0 +1,17 @@
+# configurazione del server
+spring:
+  profiles:
+    active: test
+
+
+server:
+  port: 8091
+  servlet:
+    contextPath: /chinookjpa
+
+
+# impostazioni per hibernate
+hibernate:
+  hbm2ddl:
+    auto: none
+  show-sql: true

@@ -58,4 +58,14 @@ public class Albums extends BaseId<Long> {
         this.title = title;
         this.artist = artist;
     }
+
+    @Override
+    public String toString() {
+        return "Albums{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", artist=" + artist +
+                ", tracks=" + tracks +
+                '}';
+    }
 }

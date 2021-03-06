@@ -3,8 +3,6 @@ package it.plansoft.chinookjpa.controller.interfaces;/* ggrosso created on 21/02
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.List;
 import java.util.Optional;
@@ -21,9 +19,9 @@ public interface ICrudController<MODEL, ID> {
 
     ResponseEntity<List<MODEL>> saveAll(List<MODEL> model);
 
-    void delete(MODEL model);
+    ResponseEntity<Optional<MODEL>> delete(MODEL model);
 
-    void deleteById(ID id);
+    ResponseEntity<Optional<MODEL>> deleteById(ID id);
 
     ResponseEntity<MODEL> update(MODEL model);
 
