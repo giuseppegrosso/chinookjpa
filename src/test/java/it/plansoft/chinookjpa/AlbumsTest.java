@@ -45,11 +45,11 @@ public class AlbumsTest extends BaseCrudRepositoryTest<
     public void testService() {
         setRepository(service, repository, new Albums());
         getServiceinsert();
-        getServiceAll();
-        getServiceById(2L);
-        deleteService(new Albums(2L, "", null));
+        List<Albums> list = getServiceAll();
+        getServiceById(list.get(0).getId());
+        deleteService(list.get(0));
 
-        deleteServiceById(1L);
+        deleteServiceById(list.get(1).getId());
         getServiceAll();
     }
 

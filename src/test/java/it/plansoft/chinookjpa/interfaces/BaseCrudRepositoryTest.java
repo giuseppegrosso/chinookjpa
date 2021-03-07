@@ -95,11 +95,13 @@ public abstract class BaseCrudRepositoryTest<
         assertEquals(r.get().getId(), id);
     }
 
-    public void getServiceAll() {
+    public  List<MODEL> getServiceAll() {
 
         List<MODEL> rlist = service.findAll();
 
         assertTrue(rlist.size() > 0);
+
+        return rlist;
     }
 
     public void getServiceinsert() {
@@ -107,7 +109,13 @@ public abstract class BaseCrudRepositoryTest<
         List<MODEL> mm = getInsertElement();
 
         List<MODEL> mi = service.saveAll(mm);
-        for (MODEL m : mi) {
+
+        List<MODEL> mi2 = service.findAll();
+
+        assertEquals(mi.size(), mi2.size());
+
+
+        for (MODEL m : mi2) {
             Optional<MODEL> e = service.findById(m.getId());
 
             assertNotNull(e);
@@ -126,7 +134,7 @@ public abstract class BaseCrudRepositoryTest<
 
         assertTrue(rlist.size() > 0);
 
-        service.delete(model);
+        service.deleteById(id);
 
         List<MODEL> rlist2 = service.findAll();
 
