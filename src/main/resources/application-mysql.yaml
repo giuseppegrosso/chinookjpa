@@ -4,7 +4,7 @@ spring:
     hikari:
       connectionTimeout: 20000
       maximumPoolSize: 5
-## MySQL
+    ## MySQL
     url: jdbc:mysql://localhost:3306/chinook
     username: root
     password: root
@@ -14,6 +14,6 @@ spring:
       ddl-auto: update
       show-sql: true
       properties:
-          hibernate:
-            format_sql=true: true
-            dialect: org.hibernate.dialect.MySQL5Dialect
+        hibernate:
+          format_sql: true
+          dialect: org.hibernate.dialect.MySQL5Dialect

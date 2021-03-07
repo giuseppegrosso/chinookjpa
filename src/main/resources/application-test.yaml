@@ -4,7 +4,7 @@ spring:
     hikari:
       connectionTimeout: 20000
       maximumPoolSize: 5
-## MySQL
+    ## TEST
     url: jdbc:h2:mem:db;DB_CLOSE_DELAY=-1
     username: sa
     password: sa
@@ -14,6 +14,6 @@ spring:
       ddl-auto: update
       show-sql: true
       properties:
-          hibernate:
-            format_sql=true: true
-            dialect: org.h2.Driver
+        hibernate:
+          format_sql: true
+          dialect: org.h2.Driver
