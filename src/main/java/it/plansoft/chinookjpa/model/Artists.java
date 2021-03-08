@@ -13,47 +13,22 @@ import java.util.Set;
 @Entity(name = "artists")
 @Table(name = "artists")
 @Builder
+@NoArgsConstructor
 public class Artists extends BaseId<Long> {
     @Id
     @Column(name = "artist_id")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 
     @Column(name = "Name")
     private String name;
 
 
-    @OneToMany(cascade=CascadeType.ALL, mappedBy="artist")
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "artist")
     @JsonIgnore
     private Set<Albums> albums;
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Set<Albums> getAlbums() {
-        return albums;
-    }
-
-    public void setAlbums(Set<Albums> albums) {
-        this.albums = albums;
-    }
-
-
-    public Artists() {
-    }
 
     public Artists(Long id, String name) {
         this.id = id;
