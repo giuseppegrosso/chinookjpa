@@ -1,5 +1,7 @@
 package it.plansoft.chinookjpa.model;/* ggrosso created on 27/02/2021 inside the package - it.plansoft.chinookjpa.model */
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -25,11 +27,12 @@ public class Albums extends BaseId<Long> {
     @Column(name = "title")
     private String title;
 
-    @ManyToOne
+    @ManyToOne(fetch= FetchType.LAZY)
     @JoinColumn(name = "artist_id")
     private Artists artist;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "album")
+    @JsonManagedReference
     private Set<Tracks> tracks;
 
 

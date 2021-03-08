@@ -1,5 +1,6 @@
 package it.plansoft.chinookjpa.model;/* ggrosso created on 05/03/2021 inside the package - it.plansoft.chinookjpa.model */
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -23,6 +24,7 @@ public class InvoiceItem extends BaseId<Long> {
 
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "track_id")
+    @JsonIgnore
     private Tracks tracks;
 
     @Column(name = "unit_price")

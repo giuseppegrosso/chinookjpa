@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Set;
 
 @RestController
@@ -21,6 +22,13 @@ public class AlbumController extends BaseCrudController<AlbumService, AlbumRepos
     public AlbumController(AlbumService service) {
         super(service);
     }
+
+//    @Override
+//    @GetMapping("/findAllDto")
+//    public ResponseEntity<List<MODEL>> findAll() {
+//        return ResponseEntity.ok(service.findAll());
+//    }
+
 
     @GetMapping("/artistName/{name}")
     public ResponseEntity<Set<Albums>> findByArtistName(@PathVariable String name) {

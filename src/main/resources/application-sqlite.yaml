@@ -1,7 +1,7 @@
 spring:
   jpa:
     #database-platform: com.enigmabridge.hibernate.dialect.SQLiteDialect
-    database-platform: it.plansoft.sql3.dialect.SQLite3Dialect
+    database-platform: it.plansoft.sql3.dialect.SQLiteDialect
     #hibernate.ddl-auto: update
     hibernate.ddl-auto: none
     #hibernate.ddl-auto: create-drop
