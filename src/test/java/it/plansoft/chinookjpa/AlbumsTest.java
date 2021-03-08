@@ -57,14 +57,11 @@ public class AlbumsTest extends BaseCrudRepositoryTest<
     @Override
     protected List<Albums> getInsertElement() {
         return Arrays.asList(
-                new Albums(1L, "prova di album",
-                null
-        ),
-                new Albums(2L, "prova di album 2",
-                        null
+                new Albums(1L, "prova di album"
                 ),
-                new Albums(3L, "prova di album 3",
-                        null
+                new Albums(2L, "prova di album 2"
+                ),
+                new Albums(3L, "prova di album 3"
                 ));
     }
 

@@ -1,10 +1,7 @@
 package it.plansoft.chinookjpa.model;/* ggrosso created on 27/02/2021 inside the package - it.plansoft.chinookjpa.model */
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
-import lombok.ToString;
+import lombok.*;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -15,6 +12,7 @@ import java.util.Set;
 @ToString
 @Entity(name = "artists")
 @Table(name = "artists")
+@Builder
 public class Artists extends BaseId<Long> {
     @Id
     @Column(name = "artist_id")

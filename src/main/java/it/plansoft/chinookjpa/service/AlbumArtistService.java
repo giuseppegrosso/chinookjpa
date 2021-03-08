@@ -3,20 +3,18 @@ package it.plansoft.chinookjpa.service;/* ggrosso created on 02/03/2021 inside t
 import it.plansoft.chinookjpa.model.Albums;
 import it.plansoft.chinookjpa.model.Artists;
 import lombok.AllArgsConstructor;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 
 @Service
+@RequiredArgsConstructor
 public class AlbumArtistService {
 
     private AlbumService albumService;
     private ArtistService artistService;
 
-    public AlbumArtistService(AlbumService albumService, ArtistService artistService) {
-        this.albumService = albumService;
-        this.artistService = artistService;
-    }
 
     @Transactional
     public Albums insertAlbumAndArtist(Albums albums) {

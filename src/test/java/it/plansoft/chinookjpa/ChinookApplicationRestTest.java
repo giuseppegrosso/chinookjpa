@@ -46,9 +46,8 @@ public class ChinookApplicationRestTest {
         loadDataBase();
     }
 
-    private void loadDataBase()
-    {
-        albumRepository.save(new Albums(1L, "Giuseppe prova", null));
+    private void loadDataBase() {
+        albumRepository.save(new Albums(1L, "Giuseppe prova"));
         artistsRepository.save(new Artists(1L, "Giuseppe prova"));
     }
 
