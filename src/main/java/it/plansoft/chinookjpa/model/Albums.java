@@ -27,12 +27,12 @@ public class Albums extends BaseId<Long> {
     @Column(name = "title")
     private String title;
 
-    @ManyToOne(fetch= FetchType.LAZY)
+    @ManyToOne
     @JoinColumn(name = "artist_id")
     private Artists artist;
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "album")
-    @JsonManagedReference
+    @JsonIgnore
     private Set<Tracks> tracks;
 
 

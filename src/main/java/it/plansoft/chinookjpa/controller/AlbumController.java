@@ -23,13 +23,6 @@ public class AlbumController extends BaseCrudController<AlbumService, AlbumRepos
         super(service);
     }
 
-//    @Override
-//    @GetMapping("/findAllDto")
-//    public ResponseEntity<List<MODEL>> findAll() {
-//        return ResponseEntity.ok(service.findAll());
-//    }
-
-
     @GetMapping("/artistName/{name}")
     public ResponseEntity<Set<Albums>> findByArtistName(@PathVariable String name) {
         return ResponseEntity.ok(service.findByArtistName(name));

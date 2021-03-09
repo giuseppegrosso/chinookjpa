@@ -18,7 +18,6 @@ public abstract class BaseCrudControllerTest<
         SERVICE extends ICrudService<MODEL, ID>,
         REPOSITORY extends JpaRepository<MODEL, ID>,
         MODEL extends BaseId<ID>, ID>
-        //implements ICrudController<MODEL, ID>
 {
 
     protected CONTROLLER controller;

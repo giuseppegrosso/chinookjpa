@@ -30,9 +30,7 @@ import javax.sql.DataSource;
 /**
  * Test repository
  */
-//@RunWith(SpringJUnit4ClassRunner.class)
-//@DataJpaTest
-//@AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
+
 @ActiveProfiles("test")
 @SpringBootTest
 @AutoConfigureMockMvc

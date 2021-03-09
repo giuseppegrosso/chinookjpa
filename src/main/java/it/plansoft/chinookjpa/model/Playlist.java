@@ -26,8 +26,8 @@ public class Playlist extends BaseId<Long> {
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(
             name = "playlist_track",
-            joinColumns = @JoinColumn(name = "playlist_id", referencedColumnName = "playlist_id"),
-            inverseJoinColumns = @JoinColumn(name = "track_id", referencedColumnName = "track_id"))
+            joinColumns = @JoinColumn(name = "playlist_id"),
+            inverseJoinColumns = @JoinColumn(name = "track_id"))
     private Set<Tracks> tracks;
 
 

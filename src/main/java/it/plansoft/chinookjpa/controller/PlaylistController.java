@@ -23,31 +23,31 @@ public class PlaylistController extends BaseCrudController<PlaylistService, Play
         super(service);
     }
 
-    @GetMapping("/findAllDto")
-    public ResponseEntity<List<PlayListDto>> findAllDto() {
-        List<Playlist> all = service.findAll();
-        List<PlayListDto> playListDtos = new ArrayList<>();
-
-        all.forEach(x -> {
-            Set<TracksDto> tracksDtos = new HashSet<>();
-            x.getTracks().forEach(track -> {
-                tracksDtos.add(new TracksDto(track.getId(),
-                        track.getName(),
-                        track.getAlbum(),
-                        track.getMediaTypes(),
-                        track.getGenres(),
-                        track.getInvoiceItems(),
-                        track.getComposer(),
-                        track.getMilliseconds(),
-                        track.getBytes(),
-                        track.getUnitPrice() ));
-            });
-
-            playListDtos.add(new PlayListDto(x.getId(), x.getName(), tracksDtos));
-        });
-
-
-        return ResponseEntity.ok(playListDtos);
-    }
+//    @GetMapping("/findAllDto")
+//    public ResponseEntity<List<PlayListDto>> findAllDto() {
+//        List<Playlist> all = service.findAll();
+//        List<PlayListDto> playListDtos = new ArrayList<>();
+//
+//        all.forEach(x -> {
+//            Set<TracksDto> tracksDtos = new HashSet<>();
+//            x.getTracks().forEach(track -> {
+//                tracksDtos.add(new TracksDto(track.getId(),
+//                        track.getName(),
+//                        track.getAlbum(),
+//                        track.getMediaTypes(),
+//                        track.getGenres(),
+//                        track.getInvoiceItems(),
+//                        track.getComposer(),
+//                        track.getMilliseconds(),
+//                        track.getBytes(),
+//                        track.getUnitPrice() ));
+//            });
+//
+//            playListDtos.add(new PlayListDto(x.getId(), x.getName(), tracksDtos));
+//        });
+//
+//
+//        return ResponseEntity.ok(playListDtos);
+//    }
 
 }
