@@ -6,7 +6,10 @@ import java.util.Set;
 
 public interface IAlbumService<Albums> {
     Set<Albums> findByArtist(Artists artist);
+
     Set<Albums> findByArtistName(String name);
+
+    Set<Albums> findByTrackName(String name);
 
     Set<Albums> findByArtistId(Long id);
 }

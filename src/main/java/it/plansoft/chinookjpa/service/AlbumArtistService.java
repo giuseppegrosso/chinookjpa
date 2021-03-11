@@ -4,6 +4,7 @@ import it.plansoft.chinookjpa.model.Albums;
 import it.plansoft.chinookjpa.model.Artists;
 import lombok.AllArgsConstructor;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -15,6 +16,11 @@ public class AlbumArtistService {
     private AlbumService albumService;
     private ArtistService artistService;
 
+    @Autowired
+    public AlbumArtistService(AlbumService albumService, ArtistService artistService) {
+        this.albumService = albumService;
+        this.artistService = artistService;
+    }
 
     @Transactional
     public Albums insertAlbumAndArtist(Albums albums) {

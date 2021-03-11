@@ -2,6 +2,7 @@ package it.plansoft.chinookjpa;
 
 import it.plansoft.chinookjpa.interfaces.BaseCrudRepositoryTest;
 import it.plansoft.chinookjpa.model.Albums;
+import it.plansoft.chinookjpa.model.Tracks;
 import it.plansoft.chinookjpa.repository.AlbumRepository;
 import it.plansoft.chinookjpa.service.AlbumService;
 import org.junit.jupiter.api.Test;
@@ -13,6 +14,10 @@ import org.springframework.test.context.ActiveProfiles;
 import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
+import java.util.Set;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -52,6 +57,27 @@ public class AlbumsTest extends BaseCrudRepositoryTest<
         deleteServiceById(list.get(1).getId());
         getServiceAll();
     }
+
+
+    @Test
+    public void testCustomSQL() {
+        setRepository(service, repository, new Albums());
+        Set<Albums> albums = repository.findByTracksName("Inject The Venom");
+
+        assertNotNull(albums);
+
+        albums.forEach(album -> {
+            // check di lettura id
+            Set<Tracks>tracs = album.getTracks();
+            tracs.forEach(track -> {
+                assertEquals(track.getName(), "Inject The Venom");
+            });
+
+        });
+
+
+    }
+
 
 
     @Override

@@ -10,7 +10,7 @@ import java.util.Set;
 @AllArgsConstructor
 
 @ToString
-@Entity(name = "artists")
+@Entity(name = "Artists")
 @Table(name = "artists")
 @Builder
 @NoArgsConstructor

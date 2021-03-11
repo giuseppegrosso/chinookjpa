@@ -4,13 +4,11 @@ import it.plansoft.chinookjpa.controller.interfaces.IAlbumController;
 import it.plansoft.chinookjpa.model.Albums;
 import it.plansoft.chinookjpa.model.Artists;
 import it.plansoft.chinookjpa.repository.AlbumRepository;
+import it.plansoft.chinookjpa.service.AlbumArtistService;
 import it.plansoft.chinookjpa.service.AlbumService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Set;
@@ -19,8 +17,11 @@ import java.util.Set;
 @RequestMapping("/album")
 public class AlbumController extends BaseCrudController<AlbumService, AlbumRepository, Albums, Long> implements IAlbumController<Albums> {
 
-    public AlbumController(AlbumService service) {
+    private AlbumArtistService albumArtistService;
+
+    public AlbumController(AlbumService service, AlbumArtistService albumArtistService) {
         super(service);
+        this.albumArtistService = albumArtistService;
     }
 
     @GetMapping("/artistName/{name}")
@@ -37,5 +38,20 @@ public class AlbumController extends BaseCrudController<AlbumService, AlbumRepos
     public ResponseEntity<Set<Albums>> findByArtist(Artists artist) {
         return ResponseEntity.ok(service.findByArtist(artist));
     }
+
+
+    @Override
+    @GetMapping("/trackName/{name}")
+    public ResponseEntity<Set<Albums>> findByTrackName(@PathVariable String name) {
+        return ResponseEntity.ok(service.findByTrackName(name));
+    }
+
+    @Override
+    @PostMapping("/insertTransaction")
+    public ResponseEntity<Albums> save(@RequestBody Albums model) {
+        return ResponseEntity.ok(albumArtistService.insertAlbumAndArtist(model));
+    }
+
+
 
 }

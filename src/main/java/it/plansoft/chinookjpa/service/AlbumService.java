@@ -29,4 +29,9 @@ public class AlbumService extends BaseCrudService<AlbumRepository, Albums, Long>
         return repository.findByArtistName(name);
     }
 
+    @Override
+    public Set<Albums> findByTrackName(String name) {
+        return repository.findByTracksName(name);
+    }
+
 }
