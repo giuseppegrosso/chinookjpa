@@ -10,9 +10,10 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.transaction.Transactional;
 import java.util.List;
 import java.util.Set;
-
+@Transactional
 @RestController
 @RequestMapping("/album")
 public class AlbumController extends BaseCrudController<AlbumService, AlbumRepository, Albums, Long> implements IAlbumController<Albums> {

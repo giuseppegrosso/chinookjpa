@@ -17,14 +17,20 @@ import java.util.Set;
 public interface AlbumRepository extends JpaRepository<Albums, Long> {
 
     Set<Albums> findByArtistId(Long idArtist);
+
     Set<Albums> findByArtist(Artists artist);
+
+    Set<Albums> findByArtistName(String name);
+
     Set<Albums> findByTracksName(String trackName);
 
     // inferred
     Set<Albums> findByTitle(String title);
+
     //JPQL
     @Query("select a from Albums a where a.title = :title")
     Set<Albums> findByTitleCustomQuery(@Param("title") String title);
+
     //NATIVO
     @Query("select a from Albums a where a.title = :title")
     Set<Albums> findByTitleNativeQuery(@Param("title") String title);

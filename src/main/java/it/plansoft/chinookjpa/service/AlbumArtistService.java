@@ -22,7 +22,6 @@ public class AlbumArtistService {
         this.artistService = artistService;
     }
 
-    @Transactional
     public Albums insertAlbumAndArtist(Albums albums) {
         if (albums != null) {
             if (albums.getArtist() != null) {
